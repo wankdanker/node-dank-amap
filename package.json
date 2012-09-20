@@ -1,0 +1,23 @@
+{
+  "name": "dank-amap",
+  "version": "0.1.0",
+  "description": "An asynchronous map function for node which can map over anything with rate limiting",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodeunit test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/wankdanker/node-dank-amap.git"
+  },
+  "keywords": [
+    "async",
+    "map",
+    "asynchronous"
+  ],
+  "author": "Dan VerWeire",
+  "license": "MIT",
+  "dependencies": {
+    "function-rate-limit": "0.0.1"
+  }
+}
