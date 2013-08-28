@@ -10,6 +10,7 @@ function mapAsync(obj, fn, done, sq, conc) {
 		, iterate
 		, options
 		, startTime
+		, doneCalled = false
 		, doCall
 		, callCount = 0
 		, limitCount = 0
@@ -127,7 +128,8 @@ function mapAsync(obj, fn, done, sq, conc) {
 			a.push(t);
 		}
 		
-		if (err) {
+		if (err && !doneCalled) {
+			doneCalled = true;
 			done(err, a);
 		}
 		else {
@@ -137,7 +139,10 @@ function mapAsync(obj, fn, done, sq, conc) {
 	
 	function finish(err) {
 		if (countRequired === countReturned) {
-			done(err || null, a);
+			if (!doneCalled) {
+				doneCalled = true;
+				done(err || null, a);
+			}
 			
 			//prevent mem leaks
 			a = null;
