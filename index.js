@@ -103,7 +103,7 @@ function mapAsync(obj, fn, done, sq, conc) {
 	}
 	
 	function doCallTemplate(key, obj) {
-		process.nextTick(function () {
+		setImmediate(function () {
 			fn.call(
 				  obj[key]
 				, key
@@ -156,6 +156,9 @@ function mapAsync(obj, fn, done, sq, conc) {
 			iterate = null;
 			countRequired = null;
 			countReturned = null;
+			finish = null;
+			emit = null;
+			next = null;
 		}
 		else {
 			//console.log(countRequired, countReturned);
