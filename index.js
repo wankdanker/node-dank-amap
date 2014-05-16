@@ -112,6 +112,9 @@ function mapAsync(obj, fn, done, sq, conc) {
 				, emit
 				, finish
 			);
+
+			key = null;
+			obj = null;
 		});
 	}
 	
@@ -119,6 +122,8 @@ function mapAsync(obj, fn, done, sq, conc) {
 		if ((t !== undefined && t !== null && squash) || !squash) {
 			a.push(t);
 		}
+
+		t = null;
 	}
 	
 	function next(err, t) {
@@ -135,6 +140,9 @@ function mapAsync(obj, fn, done, sq, conc) {
 		else {
 			iterate();
 		}
+
+		err = null
+		t = null;
 	}
 	
 	function finish(err) {
