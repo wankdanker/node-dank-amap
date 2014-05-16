@@ -1,6 +1,6 @@
 {
   "name": "dank-amap",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "An asynchronous map function for node which can map over anything with rate limiting",
   "main": "index.js",
   "scripts": {
